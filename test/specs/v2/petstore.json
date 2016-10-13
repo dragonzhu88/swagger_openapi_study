@@ -1,0 +1,114 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "v1",
+    "title": "测试",
+    "description": "测试",
+    "termsOfService": "网址，API的服务条款",
+    "contact": {
+      "name": "zdc",
+      "url": "http://www.swagger.io/support",
+      "email": "support@swagger.io"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "xxxxx"
+    }
+  },
+  "host": "apis.baidu.com",
+  "basePath": "/heweather",
+  "schemes": [
+    "http"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "tags": [
+    {
+      "name": "渠道管理"
+    },
+    {
+      "name": "防窜货管理"
+    },
+    {
+      "name": "产销管理"
+    }
+  ],
+  "paths": {
+    "/weather/free": {
+      "get": {
+        "tags": [
+          "渠道管理"
+        ],
+        "description": "天气查询.",
+        "parameters": [
+          {
+            "name": "apikey",
+            "in": "header",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "city",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The user object",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "list": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "channel_name": {
+                        "type": "string"
+                      },
+                      "aera": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "province": {
+                              "type": "integer"
+                            },
+                            "city": {
+                              "type": "integer"
+                            },
+                            "region": {
+                              "type": "integer"
+                            }
+                          }
+                        }
+                      },
+                      "contact_name": {
+                        "type": "string"
+                      },
+                      "contact_number": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "total": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
